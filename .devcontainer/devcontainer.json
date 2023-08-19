@@ -9,17 +9,22 @@
 	"features": {
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
 	},
+	"remoteEnv": {
+		"EDITOR": "code --wait"
+	},
 	"customizations": {
 		"vscode": {
 			"extensions": [
 				"ms-vscode.go",
 				"mhutchie.git-graph",
-				"GitHub.copilot"
+				"GitHub.copilot",
+				"ms-vscode.makefile-tools"
 			],
 			"settings": {
 				"terminal.integrated.defaultProfile.linux": "zsh"
 			}
 		}
 	},
-	"postStartCommand": "pre-commit install"
+	"postCreateCommand": "go mod tidy && pre-commit install",
+	"postStartCommand": "pre-commit install-hooks"
 }

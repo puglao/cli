@@ -18,3 +18,7 @@ build:
 .PHONY: test
 test:
 	go test -v ./...
+
+.PHONY: integration-test
+integration-test:
+	go test -v -tags=integration ./test/...
