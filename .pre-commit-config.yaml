@@ -13,3 +13,9 @@ repos:
     -   id: golangci-lint
         args: ['--timeout', '5m']
         exclude: ^vendor/
+
+-   repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v2.4.0
+    hooks:
+    -   id: conventional-pre-commit
+        stages: [commit-msg]
