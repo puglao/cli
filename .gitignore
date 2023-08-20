@@ -22,3 +22,5 @@ go.work
 
 # binrary files
 bin
+
+.semrel
