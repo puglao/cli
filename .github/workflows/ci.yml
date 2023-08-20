@@ -38,4 +38,4 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     steps:
       - uses: actions/checkout@v2
-      - uses:
+      - run: echo "Releasing ${{ github.sha }}"
