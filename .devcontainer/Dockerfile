@@ -14,3 +14,15 @@ RUN case "$(uname -m)" in \
     esac && \
     curl -sL https://github.com/nektos/act/releases/download/${ACT_VERSION}/act_Linux_${ARCH}.tar.gz | tar xz && \
     mv act /usr/local/bin/act
+
+ARG GORELEASER_VERSION=v1.20.0
+RUN case "$(uname -m)" in \
+        "x86_64") \
+            ARCH="x86_64" ;; \
+        "aarch64") \
+            ARCH=;"arm64";; \
+        *) \
+            exit 1;; \
+    esac && \
+    curl -sL https://github.com/goreleaser/goreleaser/releases/download/${GORELEASER_VERSION}/goreleaser_Linux_${ARCH}.tar.gz | tar xz && \
+    mv act /usr/local/bin/goreleaser

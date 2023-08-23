@@ -12,6 +12,10 @@ pre-commit:
 	@echo "Running pre-commit hooks"
 	@pre-commit run --all-files
 
+install-releaser: /go/bin/goreleaser
+	go install github.com/goreleaser/goreleaser@latest
+
+
 build:
 	CGO_ENABLED=0 go build -ldflags="$(LDFLAG)" -o bin/$(BINARY_NAME) cmd/$(BINARY_NAME)/main.go
 
